@@ -1,0 +1,35 @@
+# 🧹 Python / Virtual Env
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info
+*.egg
+.DS_Store
+
+# 🧰 IDE / Editor
+.vscode/
+.idea/
+
+# 🧱 Dagster + dbt generated
+dagster_home/
+logs/
+output/
+target/
+dbt_packages/
+dbt_modules/
+.ge_store_backend_id
+*.dbt
+*.duckdb
+*.log
+
+# 🧪 Local data files
+data/*.csv
+!data/sample_*.csv  # keep only sample demo data if needed
+
+# 🧰 Infra and temp
+.env
+.tmp_*
+*.pid
+*.zip

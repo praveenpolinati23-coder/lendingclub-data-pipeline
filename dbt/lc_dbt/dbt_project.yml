@@ -1,0 +1,43 @@
+name: 'lc_dbt'
+version: '1.0'
+config-version: 2
+
+profile: 'lc_dbt'
+
+model-paths: ["models"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+
+models:
+  lc_dbt:
+    +materialized: view
+    +schema: main
+    staging:
+      +schema: staging
+      +tags: ['staging']
+    intermediate:
+      +schema: intermediate
+      +tags: ['intermediate']
+    marts:
+      +schema: marts
+      +tags: ['final']
+
+
+seeds:
+  lc_dbt:
+    +schema: lc_dbt
+    +quote_columns: false
+
+clean-targets:       
+  - "target"
+  - "dbt_packages"
+  - "logs"
+
+vars:
+  project_root: "{{ project_root }}"
+  dq_threshold: 0.8 
+
+snapshots:
+  lc_dbt:
+    +schema: snapshots
+

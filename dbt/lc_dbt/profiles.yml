@@ -1,0 +1,6 @@
+lc_dbt:
+  outputs:
+    dev:
+      type: duckdb
+      path: /Users/PRAVEEN/dbt/lc_dbt/lc_dbt.duckdb   
+  target: dev

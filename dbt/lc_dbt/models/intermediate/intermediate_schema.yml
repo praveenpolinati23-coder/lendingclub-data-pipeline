@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: int_joined
+    description: "Intermediate model joining customers and accounts to create a unified account view."
+    columns:
+      - name: account_id
+        description: "Unique account identifier."
+        tests:
+          - not_null
+          - unique
+      - name: customer_id
+        description: "Customer identifier (joins to stg_customers)."
+        tests:
+          - not_null
+      - name: balance
+        description: "Customer’s account balance."
+      - name: account_type
+        description: "Normalized account type."
+      - name: name
+        description: "Customer name from staging layer."
+      - name: has_loan
+        description: "Customer loan flag used in interest calculation."

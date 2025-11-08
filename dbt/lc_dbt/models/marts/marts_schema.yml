@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: fct_interest
+    description: "Final fact model computing interest rate, annual interest, and new balance for each account using lookup_interest_rate seed."
+    columns:
+      - name: customer_id
+        description: "Unique customer identifier."
+        tests:
+          - not_null
+      - name: account_id
+        description: "Unique account identifier."
+        tests:
+          - not_null
+          - unique
+      - name: original_balance
+        description: "Original account balance before applying interest."
+      - name: interest_rate_applied
+        description: "Effective interest rate applied, including loan bonus if applicable."
+      - name: annual_interest
+        description: "Interest amount earned annually (rounded to 2 decimals)."
+      - name: new_balance
+        description: "Final balance after applying interest."
