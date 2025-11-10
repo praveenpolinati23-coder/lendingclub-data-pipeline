@@ -153,14 +153,25 @@ lendingclub-data-pipeline/
 
 ## DBT Documentation & Lineage Visualization ##
 
-* Once DBT transformations complete successfully, you can generate interactive documentation to explore model lineage and tests visually.
+* 🗂️ Explore Interactive dbt Docs (Data Lineage & Model Documentation)
 
-To run inside Docker:
+Once the pipeline is running, you can generate and view dbt documentation inside Docker to explore the full data model lineage, schema, and tests.
+
+🔧 Steps to Generate and Serve dbt Docs
+
+1️⃣ Open a shell inside the running Dagster container
 
 * docker exec -it lendingclub_dagster bash
+
+💡 If the container isn’t running, start it first:
+
+* make run
+
+2️⃣ Navigate to the dbt project folder
 * cd /app/dbt/lc_dbt
-* dbt docs generate
-* dbt docs serve
+* dbt docs generate --profiles-dir /app/dbt/lc_dbt
+* dbt docs serve --profiles-dir /app/dbt/lc_dbt --port 8080 --host 0.0.0.0
+
 * Then open your browser → http://localhost:8080
 
 ## 📊 Key Concepts Covered
