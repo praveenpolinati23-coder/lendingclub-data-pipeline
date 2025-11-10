@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  dagster:
+    container_name: lendingclub_dagster
+    build:
+      context: ..
+      dockerfile: infra/Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - DAGSTER_HOME=/app/dagster_home
+    volumes:
+      # Mount all necessary folders
+      - ../lc_dagster:/app/lc_dagster
+      - ../dbt:/app/dbt
+      - ../infra:/app/infra
+      - ../output:/app/output        
+      # Auto-create dagster_home if missing
+      - dagster_home:/app/dagster_home
+    command: >
+      bash -c "
+      mkdir -p /app/dagster_home &&
+      touch /app/dagster_home/dagster.yaml &&
+      dagster dev -h 0.0.0.0 -p 3000
+      "
+
+volumes:
+  dagster_home:

@@ -4,10 +4,13 @@ config-version: 2
 
 profile: 'lc_dbt'
 
+# Explicit paths (ensures seeds + models are recognized inside Docker)
 model-paths: ["models"]
 seed-paths: ["seeds"]
 macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
 
+# Default model configs
 models:
   lc_dbt:
     +materialized: view
@@ -22,22 +25,23 @@ models:
       +schema: marts
       +tags: ['final']
 
-
+# Ensures seeds load correctly everywhere (local + Docker)
 seeds:
   lc_dbt:
     +schema: lc_dbt
     +quote_columns: false
+    +column_types:
+      range_min: integer
+      range_max: integer
+      rate: double
 
-clean-targets:       
+# Cleanup paths for dbt clean
+clean-targets:
   - "target"
   - "dbt_packages"
   - "logs"
 
+# Project-level variables
 vars:
   project_root: "{{ project_root }}"
-  dq_threshold: 0.8 
-
-snapshots:
-  lc_dbt:
-    +schema: snapshots
-
+  dq_threshold: 0.8

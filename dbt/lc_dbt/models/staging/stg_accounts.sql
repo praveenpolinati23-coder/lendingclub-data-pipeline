@@ -5,7 +5,7 @@ WITH raw AS (
         CAST(balance AS DOUBLE) AS balance,
         LOWER(TRIM(accounttype)) AS account_type
     FROM read_csv_auto(
-        '/Users/PRAVEEN/dbt/lc_dbt/data/accounts.csv',
+        '/app/dbt/lc_dbt/data/accounts.csv',
         header = TRUE,
         auto_detect = TRUE,
         normalize_names = TRUE,

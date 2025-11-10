@@ -1,4 +1,4 @@
-# 🧹 Python / Virtual Env
+# Python / Virtual Env
 venv/
 __pycache__/
 *.pyc
@@ -8,11 +8,11 @@ __pycache__/
 *.egg
 .DS_Store
 
-# 🧰 IDE / Editor
+# IDE / Editor
 .vscode/
 .idea/
 
-# 🧱 Dagster + dbt generated
+# Dagster + dbt generated
 dagster_home/
 logs/
 output/
@@ -24,11 +24,11 @@ dbt_modules/
 *.duckdb
 *.log
 
-# 🧪 Local data files
+# Local data files
 data/*.csv
 !data/sample_*.csv  # keep only sample demo data if needed
 
-# 🧰 Infra and temp
+# Infra and temp
 .env
 .tmp_*
 *.pid

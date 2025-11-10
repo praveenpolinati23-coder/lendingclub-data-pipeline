@@ -8,7 +8,7 @@ WITH raw AS (
             ELSE 'no'
         END AS has_loan
     FROM read_csv_auto(
-        '/Users/PRAVEEN/dbt/lc_dbt/data/customers.csv',
+        '/app/dbt/lc_dbt/data/customers.csv',
         header = TRUE,
         auto_detect = TRUE,
         normalize_names = TRUE

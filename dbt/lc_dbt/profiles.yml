@@ -1,6 +1,8 @@
 lc_dbt:
+  target: dev
   outputs:
     dev:
       type: duckdb
-      path: /Users/PRAVEEN/dbt/lc_dbt/lc_dbt.duckdb   
-  target: dev
+      path: /app/dbt/lc_dbt/lc_dbt.duckdb
+      threads: 1
+      schema: main

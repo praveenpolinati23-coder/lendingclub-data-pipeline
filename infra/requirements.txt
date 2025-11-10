@@ -1,0 +1,7 @@
+dagster
+dagit
+dbt-core
+dbt-duckdb
+duckdb
+pandas
+pyyaml
